@@ -7,7 +7,7 @@ export const loggerMiddleware = ({getState}) => (next) => (action) => {
 
     console.group('CURRENT STATE:');
     console.log(getState());
-    console.groupEnd()
+    console.groupEnd();
 
     next(action);
 
@@ -17,6 +17,6 @@ export const loggerMiddleware = ({getState}) => (next) => (action) => {
 
     console.groupEnd();
   } else {
-    next(action)
+    next(action);
   }
 };
