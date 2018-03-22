@@ -1,1 +1,3 @@
-export const coreMiddleware = [];
+import {multiMiddleware} from "./multi.middleware";
+
+export const coreMiddleware = [multiMiddleware];

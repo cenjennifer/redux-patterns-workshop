@@ -7,7 +7,7 @@ import {appMiddleware} from "./middleware/app";
 
 // compose store enhancers
 const enhancer = compose(
-  applyMiddleware(...coreMiddleware, ...appMiddleware),
+  applyMiddleware(...appMiddleware, ...coreMiddleware),
   DevTools.instrument()
 );
 
