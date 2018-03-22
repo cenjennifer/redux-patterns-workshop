@@ -18,7 +18,7 @@
     "rxjs": "5.5.6"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "REACT_APP_ENV='development' react-scripts start",
     "api": "json-server db.json -p 3001 -d 1000",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
