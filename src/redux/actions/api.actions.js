@@ -11,7 +11,7 @@ export const apiRequest = (body, method, url, entity) => ({
 });
 
 export const apiError = (error, entity) => ({
-  type   : API_REQUEST,
+  type   : API_ERROR,
   payload: {
     data: error,
     meta: {entity}
@@ -19,7 +19,7 @@ export const apiError = (error, entity) => ({
 });
 
 export const apiSuccess = (response, entity) => ({
-  type   : API_REQUEST,
+  type   : API_SUCCESS,
   payload: {
     data: response,
     meta: {entity}
