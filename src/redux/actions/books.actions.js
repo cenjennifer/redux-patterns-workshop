@@ -1,5 +1,7 @@
-export const FETCH_BOOKS = '[books] Fetch';
-export const SET_BOOKS   = '[books] Set';
+import {BOOKS} from '../constants/entities';
+
+export const FETCH_BOOKS = `${BOOKS} Fetch`;
+export const SET_BOOKS   = `${BOOKS} Set`;
 
 export const fetchBooks = (query) => ({
     type: FETCH_BOOKS,
@@ -8,9 +10,10 @@ export const fetchBooks = (query) => ({
     }
 });
 
-export const setBooks = (books) => ({
+export const setBooks = (books, normalizeId) => ({
   type: SET_BOOKS,
   payload: {
-    data: books
+    data: books,
+    meta: { normalizeId, entity: BOOKS }
   }
 });

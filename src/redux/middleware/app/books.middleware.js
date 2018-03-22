@@ -2,9 +2,8 @@ import {FETCH_BOOKS, setBooks} from "../../actions/books.actions";
 import {apiRequest, API_SUCCESS, API_ERROR} from "../../actions/api.actions";
 import {setLoader} from "../../actions/ui.actions";
 import {API} from '../../constants/urls';
-import {setNotification} from "../../actions/notification.actions";
-
-const BOOKS = '[books]';
+import {createNotification} from "../../actions/notification.actions";
+import {BOOKS} from '../../constants/entities';
 
 export const booksMiddleware = ({getState, dispatch}) => (next) => (action) => {
   next(action);
@@ -20,14 +19,14 @@ export const booksMiddleware = ({getState, dispatch}) => (next) => (action) => {
 
     case `${BOOKS} ${API_SUCCESS}`:
       next([
-        setBooks(action.payload.data),
+        setBooks(action.payload.data.items, 'id'),
         setLoader(false, BOOKS)
       ]);
       break;
 
     case `${BOOKS} ${API_ERROR}`:
       next([
-        setNotification(action.payload.data, BOOKS),
+        createNotification(action.payload.data.message, BOOKS),
         setLoader(false, BOOKS)
       ]);
       break;

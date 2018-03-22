@@ -9,7 +9,7 @@ export const apiMiddleware = ({ dispatch }) => (next) => (action) => {
 
     fetch(meta.url, { method: meta.method })
       .then( response => response.json())
-      .then( data => dispatch(apiSuccess(data, meta.entity)))
+      .then( data => dispatch(apiSuccess(data, meta.entity )))
       .catch( error => dispatch(apiError(error, meta.entity)))
   }
 };

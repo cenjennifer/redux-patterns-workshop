@@ -6,7 +6,7 @@ export const apiRequest = (body, method, url, entity) => ({
   type   : `${entity} ${API_REQUEST}`,
   payload: {
     data: body,
-    meta: {method, url, entity}
+    meta: { method, url, entity },
   }
 });
 
@@ -22,6 +22,6 @@ export const apiSuccess = (response, entity) => ({
   type   : `${entity} ${API_SUCCESS}`,
   payload: {
     data: response,
-    meta: {entity}
+    meta: { entity }
   }
 });
